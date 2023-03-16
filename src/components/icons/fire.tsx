@@ -8,11 +8,13 @@ export const FireIcon = ({ isActive }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill={isFillColorActive}
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke={isStrokeColorActive}
-            className="w-6 h-6 "
+            className={`w-6 h-6  ${
+                isActive
+                    ? "fill-red-50 stroke-red-400 dark:fill-red-900 dark:stroke-red-400"
+                    : "fill-current stroke-current"
+            }`}
         >
             <path
                 strokeLinecap="round"
