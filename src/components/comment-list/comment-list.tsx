@@ -1,7 +1,5 @@
-import {
-    CommentListProvider,
-    useCommentList,
-} from "../../contexts/comment-list-context";
+import { Link } from "react-router-dom";
+import { useCommentList } from "../../contexts/comment-list";
 import { Comment } from "../comment/comment";
 import { Select } from "../select/select";
 
@@ -23,11 +21,13 @@ export const CommentList = () => {
                 />
             </div>
 
-            <ul className="flex flex-col gap-y-4">
+            <ul className="flex flex-col md:gap-y-4">
                 {response.comments.map((comment) => {
                     return (
                         <li>
-                            <Comment comment={comment} />
+                            <Link to={"userid/postid"}>
+                                <Comment comment={comment} />
+                            </Link>
                         </li>
                     );
                 })}
