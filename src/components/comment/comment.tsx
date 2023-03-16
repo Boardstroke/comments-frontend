@@ -1,4 +1,5 @@
 import { Button } from "../button/button";
+import { Card } from "../card/card";
 import { EllipsisIcon, FireIcon, MessageIcon } from "../icons";
 
 export type CommentProps = {
@@ -9,12 +10,14 @@ export type CommentProps = {
         };
         date: string;
         text: string;
+
+        imageUrl?: string;
     };
 };
 
 export const Comment = ({ comment }: CommentProps) => {
     return (
-        <div className="bg-white p-4 rounded-lg border border-gray-300 flex flex-col gap-y-4 hover:bg-gray-50 cursor-pointer">
+        <Card>
             <header className="flex justify-between flex-1">
                 <div className="flex">
                     <img
@@ -23,17 +26,30 @@ export const Comment = ({ comment }: CommentProps) => {
                         className="w-10 h-10 rounded-full mr-4"
                     />
                     <div>
-                        <h4 className="text-lg font-bold">
+                        <h4 className="text-lg font-bold dark:text-white">
                             {comment.author.name}
                         </h4>
-                        <p className="text-gray-600 text-sm">{comment.date}</p>
+                        <p className="text-gray-600 text-sm dark:text-gray-400">
+                            {comment.date}
+                        </p>
                     </div>
                 </div>
 
                 <Button icon={<EllipsisIcon />} variant="text" rounded />
             </header>
             <article>
-                <p className="text-gray-700">{comment.text}</p>
+                <p className="text-gray-700 dark:text-gray-200">
+                    {comment.text}
+                </p>
+                <figure className="w-full flex items-start">
+                    {comment.imageUrl && (
+                        <img
+                            src={comment.imageUrl}
+                            alt="comment"
+                            className="max-w-screen-xl h-auto object-contain rounded-lg mt-4"
+                        />
+                    )}
+                </figure>
             </article>
 
             <footer>
@@ -50,6 +66,6 @@ export const Comment = ({ comment }: CommentProps) => {
                     </Button.Group>
                 </div>
             </footer>
-        </div>
+        </Card>
     );
 };
