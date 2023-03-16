@@ -30,6 +30,7 @@ export const Button = ({
                 text-sm font-medium rounded-md
                 text-slate-800 
                 hover:bg-gray-100
+                dark:text-gray-100 dark:hover:bg-slate-800
                 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-400
                 ${rounded ? "rounded-full px-2 py-2" : ""}
 
@@ -40,12 +41,12 @@ export const Button = ({
                 }
                 ${
                     variant === "text"
-                        ? "bg-transparent  border-transparent text-gray-700 hover:bg-gray-50"
+                        ? "bg-transparent  border-transparent text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-slate-800"
                         : ""
                 }
                 ${
                     variant === "danger"
-                        ? "bg-red-50  hover:bg-red-100 border-red-600 text-red-600"
+                        ? "bg-red-50 hover:bg-red-100 border-red-600 text-red-600 dark:bg-red-600 dark:text-red-100"
                         : ""
                 }
 
