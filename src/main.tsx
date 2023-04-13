@@ -10,6 +10,7 @@ import { Root } from "./pages/root";
 import { Post } from "./pages/post";
 import { ThemeProvider } from "./contexts/theme";
 import { Posts } from "./pages/posts";
+import { Login } from "./pages/login";
 
 if (process.env.NODE_ENV === "development") {
     const { worker } = await import("./mock-server/msw-worker");
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             },
         ],
     },
+    {
+        path: "/login",
+        element: <Login />,
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
